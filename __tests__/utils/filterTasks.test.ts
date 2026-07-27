@@ -29,4 +29,24 @@ describe('filterTasksByStatus', () => {
     // @ts-expect-error probando entrada inválida en runtime
     expect(() => filterTasksByStatus(mockTasks, 'invalido')).toThrow();
   });
+
+  //Nuevas Pruebas
+
+  it('el resultado contiene la tarea "Comprar leche" cuando se filtran las pendientes', () => {
+    const result = filterTasksByStatus(mockTasks, 'pending');
+    const titles = result.map(task => task.title);
+    expect(titles).toContain('Comprar leche');
+  });
+
+  it('devuelve un arreglo vacío cuando la lista de tareas está vacía', () => {
+    const result = filterTasksByStatus([], 'pending');
+    expect(result).toEqual([]);
+  });
+
+  it('conserva el orden original de las tareas filtradas', () => {
+    const result = filterTasksByStatus(mockTasks, 'pending');
+    expect(result[0].title).toBe('Comprar leche');
+    expect(result[1].title).toBe('Hacer ejercicio');
+  });
+
 });

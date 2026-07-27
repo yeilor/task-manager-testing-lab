@@ -34,4 +34,18 @@ describe('validateTaskTitle', () => {
       expect(validateTaskTitle(titulo101)).toBe('El título no puede exceder los 100 caracteres');
     });
   });
+
+    // Nuevas Pruebas
+
+  it('acepta un título válido aunque tenga espacios al inicio y al final', () => {
+    expect(validateTaskTitle('   Comprar leche   ')).toBeNull();
+  });
+
+  it('acepta un título con tres caracteres después de eliminar espacios', () => {
+    expect(validateTaskTitle('   ABC   ')).toBeNull();
+  });
+
+  it('retorna error cuando el título contiene solo saltos de línea y tabulaciones', () => {
+    expect(validateTaskTitle('\n\t')).toBe('El título es obligatorio');
+  });
 });
