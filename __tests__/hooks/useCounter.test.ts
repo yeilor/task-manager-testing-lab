@@ -41,4 +41,31 @@ describe('useCounter', () => {
     });
     expect(result.current.count).toBe(10);
   });
+
+  // Nuevas Pruebas
+
+  it('incrementa correctamente varias veces consecutivas', async () => {
+    const { result } = await renderHook(() => useCounter());
+
+    await act(() => {
+    result.current.increment();
+    result.current.increment();
+    result.current.increment();
+  });
+
+    expect(result.current.count).toBe(3);
+});
+
+it('permite valores negativos al decrementar desde cero', async () => {
+    const { result } = await renderHook(() => useCounter());
+
+    await act(() => {
+    result.current.decrement();
+    result.current.decrement();
+    result.current.decrement();
+  });
+
+  expect(result.current.count).toBe(-3);
+});
+
 });

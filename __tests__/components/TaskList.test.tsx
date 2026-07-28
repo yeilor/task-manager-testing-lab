@@ -20,4 +20,20 @@ describe('TaskList', () => {
     await render(<TaskList tasks={[mockTask, anotherTask]} />);
     expect(screen.getByText('2 tareas')).toBeTruthy();
   });
+
+  //Nuevas Pruebas
+
+  it('muestra "1 tarea" cuando existe una sola tarea', async () => {
+    await render(<TaskList tasks={[mockTask]} />);
+
+    expect(screen.getByText('1 tarea')).toBeTruthy();
+});
+
+it('renderiza todas las tareas de la lista', async () => {
+  await render(<TaskList tasks={[mockTask, anotherTask]} />);
+
+  expect(screen.getByText('Tarea 1')).toBeTruthy();
+  expect(screen.getByText('Tarea 2')).toBeTruthy();
+});
+
 });

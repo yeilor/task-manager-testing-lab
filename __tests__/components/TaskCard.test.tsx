@@ -37,4 +37,21 @@ describe('TaskCard', () => {
     expect(mockOnDelete).toHaveBeenCalledWith('1');
     expect(mockOnDelete).toHaveBeenCalledTimes(1);
   });
+
+  //Nuevas Pruebas
+
+  it('muestra el botón eliminar con la etiqueta de accesibilidad correcta', async () => {
+    await render(<TaskCard task={mockTask} onDelete={mockOnDelete} />);
+
+    expect(
+    screen.getByLabelText('Eliminar tarea Estudiar React Native')
+  ).toBeTruthy();
+});
+
+it('renderiza el contenedor principal con rol de botón', async () => {
+  await render(<TaskCard task={mockTask} onDelete={mockOnDelete} />);
+
+  expect(screen.getByRole('button')).toBeTruthy();
+});
+
 });
