@@ -43,10 +43,9 @@ describe('filterTasksByStatus', () => {
     expect(result).toEqual([]);
   });
 
-  it('conserva el orden original de las tareas filtradas', () => {
-    const result = filterTasksByStatus(mockTasks, 'pending');
-    expect(result[0].title).toBe('Comprar leche');
-    expect(result[1].title).toBe('Hacer ejercicio');
+  it('lanza un error cuando la lista de tareas es null', () => {
+  // @ts-expect-error probando entrada inválida en runtime
+  expect(() => filterTasksByStatus(null, 'pending')).toThrow();
   });
 
 });

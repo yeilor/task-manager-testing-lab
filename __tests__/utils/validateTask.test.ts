@@ -48,4 +48,10 @@ describe('validateTaskTitle', () => {
   it('retorna error cuando el título contiene solo saltos de línea y tabulaciones', () => {
     expect(validateTaskTitle('\n\t')).toBe('El título es obligatorio');
   });
+
+  it('retorna mensaje de error cuando el título es null', () => {
+  // @ts-expect-error probando entrada inválida en runtime
+  expect(validateTaskTitle(null)).toBe('El título es obligatorio');
+});
+
 });

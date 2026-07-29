@@ -7,7 +7,8 @@ const mockTask = {
   title: 'Estudiar React Native',
   status: 'pending' as const,
 };
-
+// Se mockea onDelete con jest.fn() para aislar el componente de la lógica real de eliminación,
+// y así verificar solo que TaskCard invoca la función con el id correcto al presionar "Eliminar"
 const mockOnDelete = jest.fn();
 
 describe('TaskCard', () => {

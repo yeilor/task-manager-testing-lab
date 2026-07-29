@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react-native';
 import { TaskForm } from '../../src/components/TaskForm';
 
 describe('TaskForm', () => {
+  // Se mockea onSubmit con jest.fn() en cada test para aislar TaskForm de la lógica real
+  // de guardado, y así verificar solo si el componente invoca (o no) la función según la validación del título
   it('llama a onSubmit con el título ingresado al presionar "Guardar"', async () => {
     const mockOnSubmit = jest.fn();
     await render(<TaskForm onSubmit={mockOnSubmit} />);
