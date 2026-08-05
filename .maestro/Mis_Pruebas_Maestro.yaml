@@ -1,0 +1,34 @@
+appId: com.taskmanager.app
+---
+#- launchApp
+
+- assertVisible: "Task Manager"
+
+- tapOn: "Mis Pruebas Maestro"
+
+- assertVisible: "Actividad 3"
+
+- tapOn:
+    id: "input-nombre"
+- inputText: "Yeimy"
+
+- tapOn:
+    id: "input-apellido"
+- inputText: "Marin"
+
+- tapOn:
+    id: "input-hobby"
+- inputText: "Dormir"
+
+- tapOn: "Guardar"
+
+- assertVisible: "Registro creado correctamente"
+- assertVisible: "Nombre: Yeimy"
+- assertVisible: "Apellido: Marin"
+- assertVisible: "Hobby: Dormir"
+
+- takeScreenshot: evidencia-maestro
+
+- tapOn: "⬅ Volver al menú principal"
+- assertVisible: "Task Manager"
+- stopApp

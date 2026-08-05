@@ -15,6 +15,12 @@ const ACCESOS: { href: string; titulo: string; descripcion: string; className: s
     titulo: 'Flujo Transaccional',
     descripcion: 'Datos de usuario, envío y pago',
     className: 'bg-emerald-600 active:bg-emerald-700',
+  },  
+  {
+    href: '/mis-pruebas',
+    titulo: 'Mis Pruebas Maestro',
+    descripcion: 'Flujo E2E para automatización',
+    className: 'bg-purple-600 active:bg-purple-700',
   },
 ];
 

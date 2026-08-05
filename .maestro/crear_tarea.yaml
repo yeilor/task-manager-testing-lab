@@ -1,6 +1,9 @@
 appId: com.taskmanager.app
 ---
-- launchApp
+# Flujo E2E: abrir la app, navegar a Todo List, crear una tarea
+# y verificar que aparezca tanto el mensaje de éxito como en la lista
+
+#- launchApp
 - assertVisible: "Task Manager"
 - tapOn: "Flujo Todo List"
 - assertVisible: "Nueva tarea"

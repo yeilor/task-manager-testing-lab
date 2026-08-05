@@ -1,0 +1,1 @@
+export { MisPruebasScreen as default } from '../src/screens/MisPruebasScreen';

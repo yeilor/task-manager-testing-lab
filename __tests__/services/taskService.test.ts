@@ -1,10 +1,15 @@
 import { http, HttpResponse } from 'msw';
 import { server } from '../../src/mocks/server';
+import { resetTasks } from '../../src/mocks/handlers';
 import { createTask, fetchTasks } from '../../src/services/taskService';
 
 const API_URL = 'https://api.taskmanager.com';
 
 describe('taskService contra la API falsa', () => {
+  beforeEach(() => {
+    resetTasks();
+  });
+
   it('crea la tarea con lo que responde la API', async () => {
     const task = await createTask('Comprar pan');
     expect(task).toMatchObject({ title: 'Comprar pan', status: 'pending' });
